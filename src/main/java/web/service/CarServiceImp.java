@@ -2,6 +2,7 @@ package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.CarDao;
 import web.model.Car;
 
@@ -18,5 +19,10 @@ public class CarServiceImp implements CarService {
     @Override
     public List<Car> getCars(int count) {
         return carDao.getCars(count);
+    }
+    @Transactional
+    @Override
+    public void addNewCar(Car car) {
+        carDao.addNewCar(car);
     }
 }

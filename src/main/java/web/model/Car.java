@@ -1,8 +1,19 @@
 package web.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name= "car")
 public class Car {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
     private String model;
+    @Column
     private int series;
+    @Column
     private String color;
 
     public Car(String model, int series, String color) {
@@ -10,6 +21,7 @@ public class Car {
         this.series = series;
         this.color = color;
     }
+    public Car(){}
 
     public String getModel() {
         return model;
@@ -42,5 +54,9 @@ public class Car {
                 ", series=" + series +
                 ", color='" + color + '\'' +
                 '}';
+    }
+
+    public long getId() {
+        return id;
     }
 }
