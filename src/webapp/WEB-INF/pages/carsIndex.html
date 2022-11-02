@@ -22,14 +22,14 @@
         <td th:utext="${car.getColor()}"></td>
         <td th:utext="${car.getModel()}"></td>
         <td th:utext="${car.getSeries()}"></td>
-    <td><a th:href="@{/{id}/edit(id=${car.getId()})}">Edit</a></td>
+    <td><a th:href="@{/cars/edit/{id}/(id=${car.getId()})}">Edit</a></td>
 
-    <td><form th:method="DELETE" th:action="@{/{id}/delete(id=${car.getId()})}">
+    <td><form th:method="DELETE" th:action="@{/cars/{id}/delete(id=${car.getId()})}">
         <input type="submit" value="Delete">
         </form></td>
 
     <tr>
-    <td colspan="5" align="center"><a th:href="@{/new}">Add new car</a></td>
+    <td colspan="5" align="center"><a th:href="@{/cars/new}">Add new car</a></td>
 
     </tr>
     </table>

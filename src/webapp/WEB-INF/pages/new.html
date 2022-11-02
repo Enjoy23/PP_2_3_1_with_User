@@ -5,17 +5,25 @@
     <title>New</title>
 </head>
 <body>
+<h1><center>New car details</center></h1>
 <form th:method="POST" th:action="@{/cars}" th:object="${car}">
+    <table border="100" bordercolor="teal" align="center">
+        <tr><td>
     <label for="color">Enter color</label>
     <input type="text" th:field="*{color}" id="color">
-    <br/>
+            </td> </tr>
+        <tr><td>
     <label for="model">Enter model:</label>
     <input type="text" th:field="*{model}" id="model">
-    <br/>
+        </td> </tr>
+        <tr><td>
     <label for="series">Enter series:</label>
     <input type="text" th:field="*{series}" id="series">
-    <br/>
-    <input type="submit" value="Save">
+        </td> </tr>
+        <tr><td>
+            <input type="submit" value="Save">
+        </td> </tr>
+    </table>
 </form>
 </body>
 </html>

@@ -7,6 +7,8 @@ import web.dao.CarDao;
 import web.model.Car;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CarServiceImp implements CarService {
     private final CarDao carDao;
@@ -17,12 +19,30 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public List<Car> getCars(int count) {
-        return carDao.getCars(count);
+    public List<Car> getCars() {
+        return carDao.getCars();
     }
     @Transactional
     @Override
     public void addNewCar(Car car) {
         carDao.addNewCar(car);
+    }
+
+    @Override
+    public Car findCarById(long id) {
+        Optional<Car> user = carDao.findCarById(id);
+        return user.orElseThrow(() -> new RuntimeException("Car by id = " + id + " not found"));
+    }
+
+    @Transactional
+    @Override
+    public void deleteCar(long id) {
+        carDao.deleteCar(id);
+    }
+
+    @Transactional
+    @Override
+    public void updateCar(Car car) {
+        carDao.updateCar(car);
     }
 }

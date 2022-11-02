@@ -1,13 +1,12 @@
 package web.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.Car;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class CarDaoImp implements CarDao {
@@ -20,21 +19,26 @@ public class CarDaoImp implements CarDao {
 //    }
 
     @Override
-    public List<Car> getCars(int count) {
-
-        List<Car> cars = new ArrayList<>();
-
-        cars.add(new Car("Mazda",3,"red"));
-        cars.add(new Car("Mercedes",10,"white"));
-        cars.add(new Car("BMW",5,"black"));
-        cars.add(new Car("Nissan",370,"white"));
-        cars.add(new Car("Lada",10,"gray"));
-
-        return cars.stream().limit(count).toList();
+    public List<Car> getCars() {
+        return entityManager.createQuery("FROM Car", Car.class).getResultList();
     }
-
+    @Override
     public void addNewCar(Car car){
         entityManager.persist(car);
+    }
+    @Override
+    public Optional<Car> findCarById(long id) {
+        return Optional.ofNullable(entityManager.find(Car.class, id));
+    }
+
+    @Override
+    public void deleteCar(long id) {
+        entityManager.remove(findCarById(id).orElseThrow(() -> new RuntimeException("Car by id = " + id + " not found")));;
+    }
+
+    @Override
+    public void updateCar(Car car) {
+        entityManager.merge(car);
     }
 
 }
