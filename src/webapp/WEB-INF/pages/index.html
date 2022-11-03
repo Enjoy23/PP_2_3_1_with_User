@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
+<!--    <meta charset="UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title></title>
 </head>
 <body>
@@ -10,10 +11,10 @@
     <th:block th:each="msg : ${messages}">
         <h1 th:text="${msg}"></h1>
     </th:block>
-    <a th:href="@{/cars/new}"><font onmouseover="style.backgroundColor='#98FB98'; style.cursor='hand'"
+    <a th:href="@{/users/new}"><font onmouseover="style.backgroundColor='#98FB98'; style.cursor='hand'"
                          onMouseOut="style.backgroundColor='#FFDAB9';"
                          style="font-family:'Comic Sans MS';color:green;font-size:25px"
-                        >Add new car</font></a>
+                        >Add new user</font></a>
 <
 </div>
 </body>
