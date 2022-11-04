@@ -50,7 +50,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "surname='" + surname + '\'' +
+                "ID = " + id +
+                ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", name='" + name + '\'' +
                 '}';

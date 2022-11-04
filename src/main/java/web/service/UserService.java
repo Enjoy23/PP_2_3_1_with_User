@@ -16,5 +16,5 @@ public interface UserService {
     void deleteUser(long id);
 
     @Transactional
-    void updateUser(User user);
+    void updateUser(User user,long id);
 }

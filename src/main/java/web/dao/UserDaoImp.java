@@ -24,21 +24,21 @@ public class UserDaoImp implements UserDao {
         entityManager.persist(user);
     }
     @Override
-    public Optional<User> findUserById(long id) {
-        return Optional.ofNullable(entityManager.find(User.class, id));
+    public User findUserById(long id) {
+        return (entityManager.find(User.class, id));
     }
 
     @Override
     public void deleteUser(long id) {
-        entityManager.remove(findUserById(id).orElseThrow(() -> new RuntimeException("User by id = " + id + " not found")));;
+        entityManager.remove(findUserById(id));
     }
 
     @Override
-    public void updateUser(User user) {
-//        User user = findUserById(id);
-//        user.setName(userNew.getName());
-//        user.setSurname(userNew.getSurname());
-//        user.setAge(userNew.getAge());
+    public void updateUser(User userNew,long id) {
+        User user = findUserById(id);
+        user.setName(userNew.getName());
+        user.setSurname(userNew.getSurname());
+        user.setAge(userNew.getAge());
         entityManager.merge(user);
     }
 

@@ -30,8 +30,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User findUserById(long id) {
-        Optional<User> user = userDao.findUserById(id);
-        return user.orElseThrow(() -> new RuntimeException("User by id = " + id + " not found"));
+        User user = userDao.findUserById(id);
+        return user;
     }
 
     @Transactional
@@ -42,7 +42,7 @@ public class UserServiceImp implements UserService {
 
     @Transactional
     @Override
-    public void updateUser(User user) {
-        userDao.updateUser(user);
+    public void updateUser(User user, long id) {
+        userDao.updateUser(user,id);
     }
 }

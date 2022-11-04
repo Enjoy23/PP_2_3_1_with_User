@@ -43,15 +43,15 @@ public class UserController {
     @GetMapping("/edit/{id}/")
     public String editUserForm(@PathVariable("id") long id, ModelMap model) {
         model.addAttribute("user", userService.findUserById(id));
-        System.out.println("Finding user: "+userService.findUserById(id));
-        userService.deleteUser(id);
+        System.out.println("Юзер найденный в гет: "+userService.findUserById(id));
+       // userService.deleteUser(id);
         return "edit_user";
     }
 
-    @PostMapping("edit")
-    public String updateUserInfo(@ModelAttribute("user") User user) {
-        System.out.println(user);
-        userService.updateUser(user);
+    @PostMapping("update/{id}")
+    public String updateUserInfo(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        System.out.println("Юзер переданный в пост: "+user);
+        userService.updateUser(user,id);
         return "redirect:/users";
     }
 

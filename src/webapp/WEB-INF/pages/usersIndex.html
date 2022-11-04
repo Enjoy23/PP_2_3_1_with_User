@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<h1><center>Cars</center></h1>
+<h1><center>Users</center></h1>
 
 
 <table border="100" bordercolor="teal" align="center">
     <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Surname</th>
         <th>Age</th>
@@ -20,6 +21,7 @@
 
     <tr>
     <tr th:each="user : ${users}">
+        <td th:utext="${user.getId()}"></td>
         <td th:utext="${user.getName()}"></td>
         <td th:utext="${user.getSurname()}"></td>
         <td th:utext="${user.getAge()}"></td>
