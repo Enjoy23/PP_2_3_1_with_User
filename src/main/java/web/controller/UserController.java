@@ -34,7 +34,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @PostMapping(value = "/{id}/delete")
+    @DeleteMapping (value = "/{id}/delete")
     public String delete(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return "redirect:/users";
@@ -44,13 +44,12 @@ public class UserController {
     public String editUserForm(@PathVariable("id") long id, ModelMap model) {
         model.addAttribute("user", userService.findUserById(id));
         System.out.println("Юзер найденный в гет: "+userService.findUserById(id));
-       // userService.deleteUser(id);
         return "edit_user";
     }
 
-    @PostMapping("update/{id}")
+    @PatchMapping("update/{id}")
     public String updateUserInfo(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-        System.out.println("Юзер переданный в пост: "+user);
+        System.out.println("Юзер переданный в пост: "+user+id);
         userService.updateUser(user,id);
         return "redirect:/users";
     }

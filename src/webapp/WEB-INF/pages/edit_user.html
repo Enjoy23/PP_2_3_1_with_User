@@ -9,7 +9,6 @@
 <body>
 <h1><center>New user details</center></h1>
 <form th:method="PATCH" th:action="@{/users/update/{id}(id=${user.getId()})}" th:object="${user}">
-<!--    <input type="hidden" name="id" th:value="${user.getId()}">-->
 
     <table border="100" bordercolor="teal" align="center">
         <tr><td>

@@ -11,6 +11,14 @@ public class User {
     private long id;
     @Column
     private String surname;
+
+    public User(long id, String surname, int age, String name) {
+        this.id = id;
+        this.surname = surname;
+        this.age = age;
+        this.name = name;
+    }
+
     @Column
     private int age;
     @Column
@@ -59,5 +67,9 @@ public class User {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
