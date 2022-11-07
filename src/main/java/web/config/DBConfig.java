@@ -69,41 +69,5 @@ public class DBConfig {
         return properties;
     }
 }
-//-----------------------
-//    @Bean
-//    public DataSource getDataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(env.getProperty("db.driver"));
-//        dataSource.setUrl(env.getProperty("db.url"));
-//        dataSource.setUsername(env.getProperty("db.username"));
-//        dataSource.setPassword(env.getProperty("db.password"));
-//        return dataSource;
-//    }
-//
-//    @Bean
-//    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
-//        return entityManagerFactory.createEntityManager();
-//    }
-//
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean getEntityManager() {
-//        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
-//        entityManager.setDataSource(getDataSource());
-//        entityManager.setPackagesToScan("web");
-//        Properties properties = new Properties();
-//        properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-//        properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-//        entityManager.setJpaProperties(properties);
-//        entityManager.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-//        return entityManager;
-//    }
-//
-//    @Bean
-//    public JpaTransactionManager getTransactionalManager() {
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(getEntityManager().getObject());
-//        transactionManager.setDataSource(getDataSource());
-//        return transactionManager;
-//    }
-//}
+
 
